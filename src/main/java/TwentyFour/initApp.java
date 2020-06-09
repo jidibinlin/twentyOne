@@ -49,6 +49,9 @@ public class initApp {
 
 		bottom = new BottomPanel();
 		middle = new MiddlePanel();
+		middle.topAddCard();
+		middle.bottomAddCard();
+		middle.topAddCard();
 		left = new LeftPanel();
 		right = new RightPanel();
 		frame.add(bottom, BorderLayout.SOUTH);
