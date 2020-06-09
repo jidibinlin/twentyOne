@@ -50,8 +50,10 @@ public class initApp {
 		bottom = new BottomPanel();
 		middle = new MiddlePanel();
 		middle.topAddCard();
+		middle.topAddHideCard();
 		middle.bottomAddCard();
-		middle.topAddCard();
+		middle.top.cardPanel.cardContainers.get(middle.top.cardPanel.cardContainers.size()-1).turnFace();
+		middle.bottomAddHideCard();
 		left = new LeftPanel();
 		right = new RightPanel();
 		frame.add(bottom, BorderLayout.SOUTH);

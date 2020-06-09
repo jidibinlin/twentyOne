@@ -2,6 +2,7 @@ package TwentyFour;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -23,10 +24,16 @@ class MiddlePanel extends JPanel {
 	public void topAddCard(){
 		top.addCard();
 	}
+	public void topAddHideCard(){
+		top.addHideCard();
+	}
 
 	public void bottomAddCard(){
 		bottom.addCard();
 
+	}
+	public void bottomAddHideCard(){
+		bottom.addHideCard();
 	}
 }
 
@@ -48,15 +55,37 @@ class PlayerPanel extends JPanel {   //玩家面板
 		cardPanel.addCard();
 		sumPoint.setText(String.valueOf(cardPanel.getSumPoint()));
 	}
+
+	public void addServerCard(){
+
+	}
+
+	public void addHideCard(){
+		cardPanel.addHideCard();
+		sumPoint.setText(String.valueOf(cardPanel.getSumPoint()));
+	}
 }
 
 class CardPanel extends JPanel { //卡牌面板
 	private int sumPoint = 0;
+	public ArrayList <CardContainer> cardContainers  = new ArrayList<CardContainer>();
 
 	public void addCard(){
 		CardContainer c = new CardContainer();
 		sumPoint += c.card.cardPoint;
 		this.add(c);
+		cardContainers.add(c);
+	}
+	public void addHideCard(){
+		CardContainer c= new CardContainer(true);
+		sumPoint += c.card.cardPoint;
+		this.add(c);
+		cardContainers.add(c);
+
+	}
+
+	public void addServerCard(){
+
 	}
 
 	public int getSumPoint(){
@@ -66,16 +95,41 @@ class CardPanel extends JPanel { //卡牌面板
 
 }
 
-class CardContainer extends JLabel {
-	private static Cards cards = new Cards();
+class CardContainer extends JLabel { //卡牌容器 每个容器装有一张单独的卡牌
+	private static Cards cards = new Cards(); //牌库
+	private ImageIcon i =null;
 	public Card card;
+	public boolean backFace=false;
 
 	public CardContainer() {
 		card = cards.getCard();
-		Icon i = new ImageIcon(card.cardName);
+		i = new ImageIcon(card.cardName);
 		this.setIcon(i);
 	}
 
+	public CardContainer(boolean backFace) {
+		card = cards.getCard();
+
+		this.backFace=backFace;
+
+		if(backFace){
+			i= new ImageIcon("pukeImage/back.jpg");
+		}
+		else {
+			i = new ImageIcon(card.cardName);
+		}
+		i.setImage(i.getImage().getScaledInstance(105, 150, Image.SCALE_DEFAULT));
+		this.setIcon(i);
+	}
+
+
+	public void turnFace(){
+		i = new ImageIcon(card.cardName);
+		i.setImage(i.getImage().getScaledInstance(105, 150, Image.SCALE_DEFAULT));
+		backFace=false;
+		this.setIcon(i);
+
+	}
 }
 
 class Cards{   //用来吐出唯一的卡牌
