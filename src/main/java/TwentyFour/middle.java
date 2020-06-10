@@ -2,12 +2,12 @@ package TwentyFour;
 
 import javax.swing.*;
 import java.awt.*;
-// import java.nio.channels.ReadableByteChannel;
+import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
-// import java.util.HashSet;
-// import java.util.Random;
+import java.util.HashSet;
+import java.util.Random;
 
-class MiddlePanel extends JPanel {//中间的面板，对战界面
+class MiddlePanel extends JPanel {
 
 	public PlayerPanel p1=null;
 	public PlayerPanel p2=null;
@@ -55,23 +55,23 @@ class PlayerPanel extends JPanel {   //玩家面板
 		this.add(cardPanel);
 	}
 
-	public void addCard(String cardName,int cardPoint){ //添加卡牌
+	public void addCard(String cardName,int cardPoint){
 		cardPanel.addCard(cardName,cardPoint);
 		sumPoint=cardPanel.getSumPoint();
 		sumPointBut.setText(String.valueOf(sumPoint));
 	}
 
-	public void addHideCard(String cardName,int cardPoint, boolean backFace){ //添加不可见卡牌
+	public void addHideCard(String cardName,int cardPoint, boolean backFace){
 		cardPanel.addHideCard(cardName,cardPoint,true);
 		oppSumPoint=cardPanel.getOppSumPoint();
 		sumPointBut.setText(String.valueOf(oppSumPoint));
 	}
 
-	public int getSumPoint() { //获取实际点数
+	public int getSumPoint() {
 		return sumPoint;
 	}
 
-	public int getOppSumPoint() { //获取可显示的点数
+	public int getOppSumPoint() {
 		return oppSumPoint;
 	}
 }
@@ -94,7 +94,7 @@ class CardPanel extends JPanel { //卡牌面板
 
 	}
 
-	public int getSumPoint(){ //实际点数
+	public int getSumPoint(){
 		if(sumPoint>21){
 			for (int i=0;i<=cardContainers.size()-1;i++){
 				if(cardContainers.get(i).card.cardPointOpt==1)
@@ -106,7 +106,7 @@ class CardPanel extends JPanel { //卡牌面板
 		return sumPoint;
 	}
 
-	public int getOppSumPoint(){ //可显示点数
+	public int getOppSumPoint(){
 		for (int i=0;i<=cardContainers.size()-2;i++){
 			oppSumPoint+=cardContainers.get(i).card.cardPoint;
 
@@ -143,7 +143,7 @@ class CardContainer extends JLabel { //卡牌容器 每个容器装有一张单�
 	}
 
 
-	public void turnFace(){ //翻转卡牌
+	public void turnFace(){
 		i = new ImageIcon(card.cardName);
 		i.setImage(i.getImage().getScaledInstance(105, 150, Image.SCALE_DEFAULT));
 		backFace=false;
@@ -215,7 +215,7 @@ class Card{   //卡牌基本类 包含每张卡牌的基本信息
 
 	public String cardName; //卡牌名称，也是卡牌的图片路径
 	public int cardPoint;  //卡牌分值
-	public int cardPointOpt; //应对当卡牌为A的时候可能A的点数为1点
+	public int cardPointOpt;
 
 	public Card(String cardName,int cardPoint){
 		this.cardName = cardName;
