@@ -47,13 +47,14 @@ public class initApp {
 		BorderLayout borderLayout = new BorderLayout(20,20);
 		frame.setLayout(new BorderLayout());
 
+		PlayerPanel p1=new PlayerPanel();
+		PlayerPanel p2=new PlayerPanel();
 		bottom = new BottomPanel();
-		middle = new MiddlePanel();
-		middle.topAddCard();
-		middle.topAddHideCard();
-		middle.bottomAddCard();
-		middle.top.cardPanel.cardContainers.get(middle.top.cardPanel.cardContainers.size()-1).turnFace();
-		middle.bottomAddHideCard();
+		middle = new MiddlePanel(p1,p2);
+		p1.addCard("pukeImage/J_3.jpg", 10);
+		p1.addHideCard("pukeImage/J_3", 10, true);
+		p2.addCard("pukeImage/J_3.jpg", 10);
+		p2.addCard("pukeImage/J_3", 10);
 		left = new LeftPanel();
 		right = new RightPanel();
 		frame.add(bottom, BorderLayout.SOUTH);
