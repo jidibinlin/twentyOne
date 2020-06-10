@@ -2,17 +2,15 @@ package TwentyFour;
 
 import javax.swing.*;
 import java.awt.*;
-import java.nio.channels.ReadableByteChannel;
+// import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
+// import java.util.HashSet;
+// import java.util.Random;
 
 class MiddlePanel extends JPanel {
 
 	public PlayerPanel p1=null;
 	public PlayerPanel p2=null;
-	public int topSumPoint=0;
-	public int bottomSumPoint=0;
 
 	public MiddlePanel(PlayerPanel p1,PlayerPanel p2) {
 		this.setLayout(new GridLayout(2, 1, 100, 100));
@@ -55,23 +53,24 @@ class PlayerPanel extends JPanel {   //玩家面板
 		this.add(cardPanel);
 	}
 
-	public void addCard(String cardName,int cardPoint){
+	public void addCard(String cardName,int cardPoint){ //添加卡牌
 		cardPanel.addCard(cardName,cardPoint);
 		sumPoint=cardPanel.getSumPoint();
 		sumPointBut.setText(String.valueOf(sumPoint));
 	}
 
-	public void addHideCard(String cardName,int cardPoint, boolean backFace){
+	public void addHideCard(String cardName,int cardPoint, boolean backFace){ //添加显示卡背的卡牌
 		cardPanel.addHideCard(cardName,cardPoint,true);
 		oppSumPoint=cardPanel.getOppSumPoint();
+		sumPoint=cardPanel.getSumPoint();
 		sumPointBut.setText(String.valueOf(oppSumPoint));
 	}
 
-	public int getSumPoint() {
+	public int getSumPoint() { //获取实际的分数
 		return sumPoint;
 	}
 
-	public int getOppSumPoint() {
+	public int getOppSumPoint() { //获取显示的分数
 		return oppSumPoint;
 	}
 }
@@ -89,13 +88,15 @@ class CardPanel extends JPanel { //卡牌面板
 	}
 	public void addHideCard(String cardName,int cardPoint, boolean backFace){
 		CardContainer c= new CardContainer(cardName,cardPoint,true);
+		sumPoint += c.card.cardPoint;
 		this.add(c);
 		cardContainers.add(c);
 
 	}
 
 	public int getSumPoint(){
-		if(sumPoint>21){
+		if(sumPoint>21){//如果总点数大于21点则A按1点计算
+			sumPoint=0;
 			for (int i=0;i<=cardContainers.size()-1;i++){
 				if(cardContainers.get(i).card.cardPointOpt==1)
 					sumPoint+=1;
@@ -128,7 +129,7 @@ class CardContainer extends JLabel { //卡牌容器 每个容器装有一张单�
 		this.setIcon(i);
 	}
 
-	public CardContainer(String cardName,int cardPoint, boolean backFace) {
+	public CardContainer(String cardName,int cardPoint, boolean backFace) { //对手最后一张卡牌显示为卡背
 		card = new Card(cardName, cardPoint);
 		this.backFace=backFace;
 
@@ -143,7 +144,7 @@ class CardContainer extends JLabel { //卡牌容器 每个容器装有一张单�
 	}
 
 
-	public void turnFace(){
+	public void turnFace(){ //翻转卡背
 		i = new ImageIcon(card.cardName);
 		i.setImage(i.getImage().getScaledInstance(105, 150, Image.SCALE_DEFAULT));
 		backFace=false;
@@ -223,6 +224,7 @@ class Card{   //卡牌基本类 包含每张卡牌的基本信息
 			this.cardPoint=10;
 			if(cardPoint==14)
 				this.cardPointOpt=1;
+				this.cardPoint=11;
 		}
 
 		else{

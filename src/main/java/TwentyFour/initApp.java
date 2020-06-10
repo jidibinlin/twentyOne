@@ -52,16 +52,20 @@ public class initApp {
 		bottom = new BottomPanel();
 		middle = new MiddlePanel(p1,p2);
 		p1.addCard("pukeImage/J_3.jpg", 10);
-		p1.addHideCard("pukeImage/J_3", 10, true);
+		p1.addCard("pukeImage/J_3.jpg", 10);
+		p1.addCard("pukeImage/J_3.jpg", 10);
+		p1.addHideCard("pukeImage/J_3.jpg", 10, true);
 		p2.addCard("pukeImage/J_3.jpg", 10);
-		p2.addCard("pukeImage/J_3", 10);
+		p2.addCard("pukeImage/J_3.jpg", 10);
+
+		System.out.println(p1.getSumPoint());
+		System.out.println(p2.getSumPoint());
 		left = new LeftPanel();
 		right = new RightPanel();
 		frame.add(bottom, BorderLayout.SOUTH);
 		frame.add(left, BorderLayout.WEST);
 		frame.add(right, BorderLayout.EAST);
 		frame.add(middle, BorderLayout.CENTER);
-
 	}
 
 }
