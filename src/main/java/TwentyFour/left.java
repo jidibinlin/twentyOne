@@ -8,5 +8,4 @@ class LeftPanel extends JPanel{
 		this.setLayout(new BorderLayout());
 		this.add(new typeButton("卡组"),BorderLayout.CENTER);
 	}
-
 }

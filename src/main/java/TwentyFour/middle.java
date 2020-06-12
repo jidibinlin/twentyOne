@@ -9,7 +9,11 @@ import java.util.ArrayList;
 
 class MiddlePanel extends JPanel {
 
-	public PlayerPanel p1=null;
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+	public PlayerPanel p1 = null;
 	public PlayerPanel p2=null;
 
 	public MiddlePanel(PlayerPanel p1,PlayerPanel p2) {
@@ -39,6 +43,10 @@ class MiddlePanel extends JPanel {
 
 class PlayerPanel extends JPanel {   //玩家面板
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private typeButton sumPointBut = new typeButton("0");
 	private CardPanel cardPanel=new CardPanel();
 	private int sumPoint=0;
@@ -76,6 +84,10 @@ class PlayerPanel extends JPanel {   //玩家面板
 }
 
 class CardPanel extends JPanel { //卡牌面板
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private int sumPoint = 0;
 	private int oppSumPoint=0;
 	public ArrayList <CardContainer> cardContainers  = new ArrayList<CardContainer>();
@@ -118,6 +130,10 @@ class CardPanel extends JPanel { //卡牌面板
 }
 
 class CardContainer extends JLabel { //卡牌容器 每个容器装有一张单独的卡牌
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	// private static Cards cards = new Cards(); //牌库
 	private ImageIcon i =null;
 	public Card card;
