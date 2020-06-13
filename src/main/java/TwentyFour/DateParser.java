@@ -15,6 +15,14 @@ public class DateParser {
         return foo;
     }
 
+    public static String getDateType(String foo) {
+        String result;
+        String[] strArry = foo.split(",");
+        result = strArry[0].split(":")[1].replace("\"", "");
+        return result;
+
+    }
+
 }
 class InitVs{
     @JSONField(ordinal = 1)
