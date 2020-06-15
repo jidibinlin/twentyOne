@@ -28,23 +28,25 @@ class InitVs{
     @JSONField(ordinal = 1)
     private String type = "init";
     @JSONField(ordinal = 2)
-    private PreCards client1=null;
+    private String clientName;
     @JSONField(ordinal = 3)
-    private PreCards client2=null;
+    private String first; //client1 client2
     @JSONField(ordinal = 4)
-    private String first=""; //client1 client2
+    private PreCards client1=null;
+    @JSONField(ordinal = 5)
+    private PreCards client2=null;
 
     public InitVs(){
 
     }
 
-    public InitVs(PreCards client1,PreCards client2,String first){
+    public InitVs(PreCards client1,PreCards client2,String first,String clientName){
         this.client1=client1;
         this.client2=client2;
+        this.clientName=clientName;
         this.first=first;
 
     }
-
 
     class PreCards{
         private String cardName1=null;
@@ -106,6 +108,14 @@ class InitVs{
 
     public void setFirst(String first) {
         this.first = first;
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
     }
 }
 

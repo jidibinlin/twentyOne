@@ -27,6 +27,7 @@ public class AppTest {
             Thread.sleep(10000);
             s.write.write(a+"\n");
             s.write.flush();
+            s.write.wait();
             // s.write.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
