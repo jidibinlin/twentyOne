@@ -51,7 +51,7 @@ public class Logic {
                 if(dateType.equals("sendCard")){
                     SendCard tmp = DateParser.parseSendCard(s);
                     Card card = cards.getCard(tmp.getCardName());
-                    p1.addHideCard(card, true);
+                    p2.addHideCard(card, true);
                 }
 
             }while(dateType.equals("stopSend"));
@@ -69,6 +69,10 @@ public class Logic {
                     try {
                         server.writer.write(toSend + "\n");
                         server.writer.flush();
+                        String cardDate = server.reader.readLine();
+                        SendCard sendCard = DateParser.parseSendCard(cardDate);
+                        Card card = cards.getCard(sendCard.getCardName());
+                        p1.addCard(card);
                     } catch (IOException e1) {
                         // TODO Auto-generated catch block
                         e1.printStackTrace();
@@ -95,7 +99,7 @@ public class Logic {
                             if(dateType1.equals("sendCard")){
                                 SendCard tmp = DateParser.parseSendCard(s1);
                                 Card card = cards.getCard(tmp.getCardName());
-                                p1.addHideCard(card, true);
+                                p2.addHideCard(card, true);
                             }
 
                         }while(dateType1.equals("stopSend"));
