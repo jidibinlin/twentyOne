@@ -175,6 +175,7 @@ class CardContainer extends JLabel { //卡牌容器 每个容器装有一张单�
 	}
 
 	public CardContainer(Card card){
+		this.card=card;
 		i = new ImageIcon(card.cardName);
 		this.setIcon(i);
 	}
@@ -194,6 +195,7 @@ class CardContainer extends JLabel { //卡牌容器 每个容器装有一张单�
 	}
 
 	public CardContainer(Card card,boolean backFace){
+		this.card=card;
 		this.backFace = backFace;
 		if(backFace){
 			i= new ImageIcon("pukeImage/back.jpg");
