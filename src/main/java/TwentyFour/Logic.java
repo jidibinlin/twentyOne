@@ -23,6 +23,12 @@ public class Logic {
         right = new RightPanel();
 
         server.connect();
+        try {
+            getInitCard();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     public void startVs() {
