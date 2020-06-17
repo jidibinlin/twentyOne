@@ -50,8 +50,10 @@ public class Logic {
                 dateType = DateParser.getDateType(s);
                 if(dateType.equals("sendCard")){
                     SendCard tmp = DateParser.parseSendCard(s);
+                    System.out.println("收到服务器卡牌");
                     Card card = cards.getCard(tmp.getCardName());
                     p2.addHideCard(card, true);
+                    System.out.println("向服务器添加卡牌");
                 }
 
             }while(dateType.equals("stopSend"));
@@ -69,10 +71,13 @@ public class Logic {
                     try {
                         server.writer.write(toSend + "\n");
                         server.writer.flush();
+                        System.out.println("向服务器发出要卡请求");
                         String cardDate = server.reader.readLine();
+                        System.out.println("收到服务器的卡牌");
                         SendCard sendCard = DateParser.parseSendCard(cardDate);
                         Card card = cards.getCard(sendCard.getCardName());
                         p1.addCard(card);
+                        System.out.println("添加卡牌");
                     } catch (IOException e1) {
                         // TODO Auto-generated catch block
                         e1.printStackTrace();
@@ -137,6 +142,7 @@ public class Logic {
         p2.addCard(client2_1);
         p2.addHideCard(client2_2,true);
         System.out.println("游戏开局初始化完毕");
+        System.out.println("先手是"+ini.getFirst());
 
     }
 }
