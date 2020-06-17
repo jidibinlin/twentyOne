@@ -1,6 +1,8 @@
 package TwentyFour;
 
 import java.net.InetAddress;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -8,8 +10,11 @@ import java.net.*;
 
 public class Server {
     private static final int Port=9433;
-    InputStreamReader read;
-    OutputStreamWriter write;
+    private InputStreamReader read;
+    private OutputStreamWriter write;
+
+    public BufferedReader reader = null;
+    public BufferedWriter writer = null;
     Socket server;
     public void connect(){
         try {
@@ -23,6 +28,9 @@ public class Server {
         try{
             read = new InputStreamReader(server.getInputStream());
             write = new OutputStreamWriter(server.getOutputStream());
+
+            reader = new BufferedReader(read);
+            writer = new BufferedWriter(write);
 
         } catch(IOException e){
             e.printStackTrace();

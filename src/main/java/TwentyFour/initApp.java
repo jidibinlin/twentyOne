@@ -6,10 +6,10 @@ import javax.swing.*;
 public class initApp {
 
 	private JFrame frame;
-	private BottomPanel bottom;
-	private MiddlePanel middle;
-	private LeftPanel left;
-	private RightPanel right;
+	// private BottomPanel bottom;
+	// private MiddlePanel middle;
+	// private LeftPanel left;
+	// private RightPanel right;
 
 	/**
 	 * Launch the application.
@@ -46,26 +46,22 @@ public class initApp {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		BorderLayout borderLayout = new BorderLayout(20,20);
 		frame.setLayout(new BorderLayout());
+		Logic L = new Logic();
+		L.Initialize();
 
-		PlayerPanel p1=new PlayerPanel();
-		PlayerPanel p2=new PlayerPanel();
-		bottom = new BottomPanel();
-		middle = new MiddlePanel(p1,p2);
-		p1.addCard("pukeImage/J_3.jpg", 10);
-		p1.addCard("pukeImage/J_3.jpg", 10);
-		p1.addCard("pukeImage/J_3.jpg", 10);
-		p1.addHideCard("pukeImage/J_3.jpg", 10, true);
-		p2.addCard("pukeImage/J_3.jpg", 10);
-		p2.addCard("pukeImage/J_3.jpg", 10);
+		// PlayerPanel p1=new PlayerPanel();
+		// PlayerPanel p2=new PlayerPanel();
+		// bottom = new BottomPanel();
+		// middle = new MiddlePanel(p1,p2);
 
-		System.out.println(p1.getSumPoint());
-		System.out.println(p2.getSumPoint());
-		left = new LeftPanel();
-		right = new RightPanel();
-		frame.add(bottom, BorderLayout.SOUTH);
-		frame.add(left, BorderLayout.WEST);
-		frame.add(right, BorderLayout.EAST);
-		frame.add(middle, BorderLayout.CENTER);
+		// System.out.println(p1.getSumPoint());
+		// System.out.println(p2.getSumPoint());
+		// left = new LeftPanel();
+		// right = new RightPanel();
+		frame.add(L.bottom, BorderLayout.SOUTH);
+		frame.add(L.left, BorderLayout.WEST);
+		frame.add(L.right, BorderLayout.EAST);
+		frame.add(L.middle, BorderLayout.CENTER);
 	}
 
 }

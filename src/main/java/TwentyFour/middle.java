@@ -4,8 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 // import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
+import java.util.HashSet;
 // import java.util.HashSet;
 // import java.util.Random;
+import java.util.Random;
 
 class MiddlePanel extends JPanel {
 
@@ -22,8 +24,8 @@ class MiddlePanel extends JPanel {
 		// bottom=new PlayerPanel();
 		this.p1=p1;
 		this.p2=p2;
-		this.add(p1);
 		this.add(p2);
+		this.add(p1);
 	}
 
 	// public void p1AddCard(String cardName,int cardPoint){
@@ -169,64 +171,70 @@ class CardContainer extends JLabel { //卡牌容器 每个容器装有一张单�
 	}
 }
 
-// class Cards{   //用来吐出唯一的卡牌
-// 	public Card cardDataBase[][] = new Card[15][5];
-// 	public HashSet<Card> usedCard = new HashSet<Card>();
+class Cards{   //牌组
+	public Card cardDataBase[][] = new Card[15][5];
+	// public HashSet<Card> usedCard = new HashSet<Card>();
 
-// 	public Cards(){
-// 		initiaCards();
-// 	}
+	public Cards(){
+		initiaCards();
+	}
 
-// 	private void initiaCards(){
-// 		for (int i=2;i<=14;i++){
-// 			for(int j=1;j<=4;j++){
-// 				cardDataBase[i][j]=new Card(Name(i, j),i);
-// 			}
-// 		}
-// 	}
-// 	private String Name(int i,int j){
-// 		String name ="pukeImage/";
-// 		switch (i) {
-// 			case 11:
-// 				name+="J";
-// 				break;
-// 			case 12:
-// 				name+="Q";
-// 				break;
-// 			case 13:
-// 				name+="K";
-// 				break;
-// 			case 14:
-// 				name+="A";
-// 				break;
+	private void initiaCards(){
+		for (int i=2;i<=14;i++){
+			for(int j=1;j<=4;j++){
+				cardDataBase[i][j]=new Card(Name(i, j),i);
+			}
+		}
+	}
+	private String Name(int i,int j){
+		String name ="pukeImage/";
+		switch (i) {
+			case 11:
+				name+="J";
+				break;
+			case 12:
+				name+="Q";
+				break;
+			case 13:
+				name+="K";
+				break;
+			case 14:
+				name+="A";
+				break;
 		
-// 			default:
-// 				name+=i;
-// 				break;
-// 		}
-// 		name+="_";
-// 		name+=j;
-// 		name+=".jpg";
+			default:
+				name+=i;
+				break;
+		}
+		name+="_";
+		name+=j;
+		name+=".jpg";
 
-// 		return name;
-// 	}
+		return name;
+	}
 
-// 	public Card getCard(){
-// 		Card tmp=null;
-// 		do {
-// 			Random random = new Random();
-// 			int i= random.nextInt(13)+2;
-// 			int j= random.nextInt(4)+1;
-// 			tmp = cardDataBase[i][j];
+	public Card getCard(String cardName){ //根据服务器发来的卡名返回卡牌
+		Card tmp=null;
+		// do {
+		// 	Random random = new Random();
+		// 	int i= random.nextInt(13)+2;
+		// 	int j= random.nextInt(4)+1;
+		// 	tmp = cardDataBase[i][j];
 			
-// 		} while (usedCard.contains(tmp));
-// 		usedCard.add(tmp);
-// 		System.out.println(tmp.cardName);
+		// } while (usedCard.contains(tmp));
+		// usedCard.add(tmp);
+		// System.out.println(tmp.cardName);
+		for (int i=2;i<=14;i++){
+			for(int j=1;j<=4;j++){
+				if(cardDataBase[i][j].cardName.equals(cardName))
+					return cardDataBase[i][j];
+			}
+		}
+		return tmp;
 
-// 		return tmp;
-// 	}
+	}
 
-// }
+}
 
 class Card{   //卡牌基本类 包含每张卡牌的基本信息
 
