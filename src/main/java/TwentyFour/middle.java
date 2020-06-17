@@ -63,11 +63,11 @@ class PlayerPanel extends JPanel {   //玩家面板
 		this.add(cardPanel);
 	}
 
-	public void addCard(String cardName,int cardPoint){ //添加卡牌
-		cardPanel.addCard(cardName,cardPoint);
-		sumPoint=cardPanel.getSumPoint();
-		sumPointBut.setText(String.valueOf(sumPoint));
-	}
+	// public void addCard(String cardName,int cardPoint){ //添加卡牌
+	// 	cardPanel.addCard(cardName,cardPoint);
+	// 	sumPoint=cardPanel.getSumPoint();
+	// 	sumPointBut.setText(String.valueOf(sumPoint));
+	// }
 
 	public void addCard(Card card){
 		cardPanel.addCard(card);
@@ -75,12 +75,12 @@ class PlayerPanel extends JPanel {   //玩家面板
 		sumPointBut.setText(String.valueOf(sumPoint));
 	}
 
-	public void addHideCard(String cardName,int cardPoint, boolean backFace){ //添加显示卡背的卡牌
-		cardPanel.addHideCard(cardName,cardPoint,true);
-		oppSumPoint=cardPanel.getOppSumPoint();
-		sumPoint=cardPanel.getSumPoint();
-		sumPointBut.setText(String.valueOf(oppSumPoint));
-	}
+	// public void addHideCard(String cardName,int cardPoint, boolean backFace){ //添加显示卡背的卡牌
+	// 	cardPanel.addHideCard(cardName,cardPoint,true);
+	// 	oppSumPoint=cardPanel.getOppSumPoint();
+	// 	sumPoint=cardPanel.getSumPoint();
+	// 	sumPointBut.setText(String.valueOf(oppSumPoint));
+	// }
 
 	public void addHideCard(Card card, boolean backFace){
 		cardPanel.addHideCard(card, true);
@@ -107,12 +107,12 @@ class CardPanel extends JPanel { //卡牌面板
 	private int oppSumPoint=0;
 	public ArrayList <CardContainer> cardContainers  = new ArrayList<CardContainer>();
 
-	public void addCard(String cardName,int cardPoint){
-		CardContainer c = new CardContainer(cardName,cardPoint);
-		sumPoint += c.card.cardPoint;
-		this.add(c);
-		cardContainers.add(c);
-	}
+	// public void addCard(String cardName,int cardPoint){
+	// 	CardContainer c = new CardContainer(cardName,cardPoint);
+	// 	sumPoint += c.card.cardPoint;
+	// 	this.add(c);
+	// 	cardContainers.add(c);
+	// }
 
 	public void addCard(Card card){
 		CardContainer c= new CardContainer(card);
@@ -121,12 +121,12 @@ class CardPanel extends JPanel { //卡牌面板
 		cardContainers.add(c);
 	}
 
-	public void addHideCard(String cardName,int cardPoint, boolean backFace){
-		CardContainer c= new CardContainer(cardName,cardPoint,true);
-		sumPoint += c.card.cardPoint;
-		this.add(c);
-		cardContainers.add(c);
-	}
+	// public void addHideCard(String cardName,int cardPoint, boolean backFace){
+	// 	CardContainer c= new CardContainer(cardName,cardPoint,true);
+	// 	sumPoint += c.card.cardPoint;
+	// 	this.add(c);
+	// 	cardContainers.add(c);
+	// }
 
 	public void addHideCard(Card card,boolean backFace){
 		CardContainer c= new CardContainer(card,true);
@@ -170,11 +170,11 @@ class CardContainer extends JLabel { //卡牌容器 每个容器装有一张单�
 	public Card card;
 	public boolean backFace=false;
 
-	public CardContainer(String cardName,int cardPoint) {
-		card = new Card(cardName, cardPoint);
-		i = new ImageIcon(card.cardName);
-		this.setIcon(i);
-	}
+	// public CardContainer(String cardName,int cardPoint) {
+	// 	card = new Card(cardName, cardPoint);
+	// 	i = new ImageIcon(card.cardName);
+	// 	this.setIcon(i);
+	// }
 
 	public CardContainer(Card card){
 		this.card=card;
@@ -182,19 +182,19 @@ class CardContainer extends JLabel { //卡牌容器 每个容器装有一张单�
 		this.setIcon(i);
 	}
 
-	public CardContainer(String cardName,int cardPoint, boolean backFace) { //对手最后一张卡牌显示为卡背
-		card = new Card(cardName, cardPoint);
-		this.backFace=backFace;
+	// public CardContainer(String cardName,int cardPoint, boolean backFace) { //对手最后一张卡牌显示为卡背
+	// 	card = new Card(cardName, cardPoint);
+	// 	this.backFace=backFace;
 
-		if(backFace){
-			i= new ImageIcon("pukeImage/back.jpg");
-		}
-		else {
-			i = new ImageIcon(card.cardName);
-		}
-		i.setImage(i.getImage().getScaledInstance(105, 150, Image.SCALE_DEFAULT));
-		this.setIcon(i);
-	}
+	// 	if(backFace){
+	// 		i= new ImageIcon("pukeImage/back.jpg");
+	// 	}
+	// 	else {
+	// 		i = new ImageIcon(card.cardName);
+	// 	}
+	// 	i.setImage(i.getImage().getScaledInstance(105, 150, Image.SCALE_DEFAULT));
+	// 	this.setIcon(i);
+	// }
 
 	public CardContainer(Card card,boolean backFace){
 		this.card=card;
