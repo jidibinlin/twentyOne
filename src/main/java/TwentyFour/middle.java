@@ -77,10 +77,12 @@ class PlayerPanel extends JPanel {   //玩家面板
 	}
 
 	public int getSumPoint() { //获取实际的分数
+		sumPoint = cardPanel.getSumPoint();
 		return sumPoint;
 	}
 
 	public int getOppSumPoint() { //获取显示的分数
+		oppSumPoint = cardPanel.getOppSumPoint();
 		return oppSumPoint;
 	}
 }
