@@ -64,6 +64,7 @@ public class initApp {
 		frame.add(L.left, BorderLayout.WEST);
 		frame.add(L.right, BorderLayout.EAST);
 		frame.add(L.middle, BorderLayout.CENTER);
+		frame.setVisible(true);
 		try {
 			L.startVs();
 		} catch (IOException e) {
