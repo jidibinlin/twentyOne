@@ -151,6 +151,7 @@ class CardPanel extends JPanel { //卡牌面板
 	}
 
 	public int getOppSumPoint(){
+		oppSumPoint=0;
 		for (int i=0;i<=cardContainers.size()-2;i++){
 			oppSumPoint+=cardContainers.get(i).card.cardPoint;
 
