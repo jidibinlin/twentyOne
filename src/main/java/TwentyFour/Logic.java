@@ -37,16 +37,21 @@ public class Logic {
 
     public void getInitCard() throws IOException {
         String initDate= server.reader.readLine();
+
+        System.out.println("初始卡牌数据接收完毕卡牌数据为"+initDate);
         InitVs ini = DateParser.parseInitVS(initDate);
         Card client1_1 = cards.getCard(ini.getClient1().getCardName1());
         Card client1_2 = cards.getCard(ini.getClient1().getCardName2());
         Card client2_1 = cards.getCard(ini.getClient2().getCardName1());
         Card client2_2 = cards.getCard(ini.getClient2().getCardName2());
 
+        System.out.println("卡牌数据处理完毕正在请求GUI");
+
         p1.addCard(client1_1.cardName,client1_1.cardPoint);
         p1.addCard(client1_2.cardName,client1_2.cardPoint);
         p2.addCard(client2_1.cardName,client2_1.cardPoint);
         p2.addCard(client2_2.cardName,client2_2.cardPoint);
+        System.out.println("游戏开局初始化完毕");
 
     }
 }
