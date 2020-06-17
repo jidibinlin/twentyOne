@@ -84,7 +84,7 @@ class PlayerPanel extends JPanel {   //玩家面板
 
 	public void addHideCard(Card card, boolean backFace){
 		cardPanel.addHideCard(card, true);
-		oppSumPoint=cardPanel.getSumPoint();
+		oppSumPoint=cardPanel.getOppSumPoint();
 		sumPoint = cardPanel.getSumPoint();
 		sumPointBut.setText(String.valueOf(oppSumPoint));
 	}
