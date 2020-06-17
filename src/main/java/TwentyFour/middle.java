@@ -130,6 +130,8 @@ class CardPanel extends JPanel { //卡牌面板
 
 	public void addHideCard(Card card,boolean backFace){
 		CardContainer c= new CardContainer(card,true);
+		if(cardContainers.size()>2)
+			cardContainers.get(cardContainers.size()-1).turnFace();
 		sumPoint +=c.card.cardPoint;
 		this.add(c);
 		cardContainers.add(c);
@@ -277,7 +279,6 @@ class Cards{   //牌组
 			}
 		}
 		return tmp;
-
 	}
 
 }

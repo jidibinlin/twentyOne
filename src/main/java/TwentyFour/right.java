@@ -12,5 +12,4 @@ class RightPanel extends JPanel{
 		l.setIcon(i);
 		this.add(l,BorderLayout.CENTER);
 	}
-
 }

@@ -1,6 +1,8 @@
 package TwentyFour;
 
 import java.io.IOException;
+import java.awt.*;
+import java.awt.event.*;
 
 public class Logic {
     Server server = new Server();
@@ -32,7 +34,82 @@ public class Logic {
         }
     }
 
-    public void startVs() {
+    public void startVs() throws IOException {
+        String dateType=null;
+        String s=null;
+        if(first.equals("client1")){
+            bottom.hit.setEnabled(true);
+            bottom.stand.setEnabled(true);
+        }
+        else{
+            bottom.hit.setEnabled(false);
+            bottom.stand.setEnabled(false);
+            do{
+                s = server.reader.readLine();
+                dateType = DateParser.getDateType(s);
+                if(dateType.equals("sendCard")){
+                    SendCard tmp = DateParser.parseSendCard(s);
+                    Card card = cards.getCard(tmp.getCardName());
+                    p1.addHideCard(card, true);
+                }
+
+            }while(dateType.equals("stopSend"));
+
+            bottom.hit.setEnabled(true);
+            bottom.stand.setEnabled(true);
+
+
+        }
+
+        ActionListener hit = new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                String toSend = ClientDate.genRequestCard("requestCard", "client1");
+                if(first.equals("client1")){
+                    try {
+                        server.writer.write(toSend + "\n");
+                    } catch (IOException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+
+                } 
+            }
+        };
+
+        ActionListener stand = new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                String toSend = ClientDate.genRequestCard("stopRequestCard", "client1");
+
+                try {
+                    server.writer.write(toSend + "\n");
+                    if(first.equals("client1")){
+                        String s1;
+                        String dateType1;
+                        bottom.hit.setEnabled(false);
+                        bottom.stand.setEnabled(false);
+                        do{
+                            s1 = server.reader.readLine();
+                            dateType1 = DateParser.getDateType(s1);
+                            if(dateType1.equals("sendCard")){
+                                SendCard tmp = DateParser.parseSendCard(s1);
+                                Card card = cards.getCard(tmp.getCardName());
+                                p1.addHideCard(card, true);
+                            }
+
+                        }while(dateType1.equals("stopSend"));
+                    }
+
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+
+
+
+            }
+        };
+        bottom.hit.addActionListener(hit);
+        bottom.stand.addActionListener(stand);
 
     }
 

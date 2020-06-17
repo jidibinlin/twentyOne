@@ -23,7 +23,28 @@ public class DateParser {
 
     }
 
+    public static StopSend parseStopSend(String stopSendCard){
+        StopSend foo = JSON.parseObject(stopSendCard,StopSend.class);
+        return foo;
+    }
+
 }
+
+class StopSend{
+    private String type="stopSend";
+
+    public StopSend() {
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+}
+
 class InitVs{
     @JSONField(ordinal = 1)
     private String type = "init";
