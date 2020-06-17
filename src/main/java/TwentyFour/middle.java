@@ -69,10 +69,23 @@ class PlayerPanel extends JPanel {   //玩家面板
 		sumPointBut.setText(String.valueOf(sumPoint));
 	}
 
+	public void addCard(Card card){
+		cardPanel.addCard(card);
+		sumPoint = cardPanel.getSumPoint();
+		sumPointBut.setText(String.valueOf(sumPoint));
+	}
+
 	public void addHideCard(String cardName,int cardPoint, boolean backFace){ //添加显示卡背的卡牌
 		cardPanel.addHideCard(cardName,cardPoint,true);
 		oppSumPoint=cardPanel.getOppSumPoint();
 		sumPoint=cardPanel.getSumPoint();
+		sumPointBut.setText(String.valueOf(oppSumPoint));
+	}
+
+	public void addHideCard(Card card, boolean backFace){
+		cardPanel.addHideCard(card, true);
+		oppSumPoint=cardPanel.getSumPoint();
+		sumPoint = cardPanel.getSumPoint();
 		sumPointBut.setText(String.valueOf(oppSumPoint));
 	}
 
@@ -100,12 +113,26 @@ class CardPanel extends JPanel { //卡牌面板
 		this.add(c);
 		cardContainers.add(c);
 	}
+
+	public void addCard(Card card){
+		CardContainer c= new CardContainer(card);
+		sumPoint +=c.card.cardPoint;
+		this.add(c);
+		cardContainers.add(c);
+	}
+
 	public void addHideCard(String cardName,int cardPoint, boolean backFace){
 		CardContainer c= new CardContainer(cardName,cardPoint,true);
 		sumPoint += c.card.cardPoint;
 		this.add(c);
 		cardContainers.add(c);
+	}
 
+	public void addHideCard(Card card,boolean backFace){
+		CardContainer c= new CardContainer(card,true);
+		sumPoint +=c.card.cardPoint;
+		this.add(c);
+		cardContainers.add(c);
 	}
 
 	public int getSumPoint(){
@@ -147,10 +174,27 @@ class CardContainer extends JLabel { //卡牌容器 每个容器装有一张单�
 		this.setIcon(i);
 	}
 
+	public CardContainer(Card card){
+		i = new ImageIcon(card.cardName);
+		this.setIcon(i);
+	}
+
 	public CardContainer(String cardName,int cardPoint, boolean backFace) { //对手最后一张卡牌显示为卡背
 		card = new Card(cardName, cardPoint);
 		this.backFace=backFace;
 
+		if(backFace){
+			i= new ImageIcon("pukeImage/back.jpg");
+		}
+		else {
+			i = new ImageIcon(card.cardName);
+		}
+		i.setImage(i.getImage().getScaledInstance(105, 150, Image.SCALE_DEFAULT));
+		this.setIcon(i);
+	}
+
+	public CardContainer(Card card,boolean backFace){
+		this.backFace = backFace;
 		if(backFace){
 			i= new ImageIcon("pukeImage/back.jpg");
 		}
