@@ -224,7 +224,7 @@ class Cards{   //牌组
 		// } while (usedCard.contains(tmp));
 		// usedCard.add(tmp);
 		// System.out.println(tmp.cardName);
-		for (int i=2;i<=14;i++){
+		for (int i=2;i<14;i++){
 			for(int j=1;j<=4;j++){
 				if(cardDataBase[i][j].cardName.equals(cardName))
 					return cardDataBase[i][j];
@@ -246,7 +246,7 @@ class Card{   //卡牌基本类 包含每张卡牌的基本信息
 		this.cardName = cardName;
 		if (cardPoint>10){
 			this.cardPoint=10;
-			if(cardPoint==14)
+			if(cardPoint==13)
 			{
 				this.cardPointOpt=1;
 				this.cardPoint=11;
