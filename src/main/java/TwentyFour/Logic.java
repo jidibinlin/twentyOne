@@ -28,7 +28,6 @@ public class Logic {
         server.connect();
         try {
             getInitCard();
-            startVs();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

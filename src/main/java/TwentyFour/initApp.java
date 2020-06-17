@@ -1,6 +1,8 @@
 package TwentyFour;
 
 import java.awt.*;
+import java.io.IOException;
+
 import javax.swing.*;
 
 public class initApp {
@@ -44,7 +46,7 @@ public class initApp {
 		frame = new JFrame();
 		frame.setBounds(200, 200, 900, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		BorderLayout borderLayout = new BorderLayout(20,20);
+		BorderLayout borderLayout = new BorderLayout(20, 20);
 		frame.setLayout(new BorderLayout());
 		Logic L = new Logic();
 		L.Initialize();
@@ -62,6 +64,12 @@ public class initApp {
 		frame.add(L.left, BorderLayout.WEST);
 		frame.add(L.right, BorderLayout.EAST);
 		frame.add(L.middle, BorderLayout.CENTER);
+		try {
+			L.startVs();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
