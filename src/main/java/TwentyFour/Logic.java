@@ -28,6 +28,7 @@ public class Logic {
         server.connect();
         try {
             getInitCard();
+            startVs();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -67,6 +68,7 @@ public class Logic {
                 if(first.equals("client1")){
                     try {
                         server.writer.write(toSend + "\n");
+                        server.writer.flush();
                     } catch (IOException e1) {
                         // TODO Auto-generated catch block
                         e1.printStackTrace();
