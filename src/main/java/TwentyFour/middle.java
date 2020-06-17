@@ -247,8 +247,10 @@ class Card{   //卡牌基本类 包含每张卡牌的基本信息
 		if (cardPoint>10){
 			this.cardPoint=10;
 			if(cardPoint==14)
+			{
 				this.cardPointOpt=1;
 				this.cardPoint=11;
+			}
 		}
 
 		else{
