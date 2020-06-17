@@ -53,7 +53,7 @@ public class Logic {
                     System.out.println("收到服务器卡牌");
                     Card card = cards.getCard(tmp.getCardName());
                     p2.addHideCard(card, true);
-                    System.out.println("向服务器添加卡牌");
+                    System.out.println("添加卡牌");
                 }
 
             }while(dateType.equals("stopSend"));
