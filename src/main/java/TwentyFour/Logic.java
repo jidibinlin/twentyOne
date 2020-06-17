@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public class Logic {
     Server server = new Server();
+    String first;
 	public BottomPanel bottom;
 	public MiddlePanel middle;
 	public LeftPanel left;
@@ -44,6 +45,7 @@ public class Logic {
         Card client1_2 = cards.getCard(ini.getClient1().getCardName2());
         Card client2_1 = cards.getCard(ini.getClient2().getCardName1());
         Card client2_2 = cards.getCard(ini.getClient2().getCardName2());
+        first = ini.getFirst();
 
         System.out.println("卡牌数据处理完毕正在请求GUI");
 

@@ -10,7 +10,6 @@ public class typeButton extends JButton{
         super(text);
         Dimension preferredSize = new Dimension(100, 30);
         this.setPreferredSize(preferredSize);
-        this.setEnabled(false);;
     }
     
 }
