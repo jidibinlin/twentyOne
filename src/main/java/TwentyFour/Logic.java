@@ -50,7 +50,7 @@ public class Logic {
         p1.addCard(client1_1.cardName,client1_1.cardPoint);
         p1.addCard(client1_2.cardName,client1_2.cardPoint);
         p2.addCard(client2_1.cardName,client2_1.cardPoint);
-        p2.addCard(client2_2.cardName,client2_2.cardPoint);
+        p2.addHideCard(client2_2.cardName,client2_2.cardPoint,true);
         System.out.println("游戏开局初始化完毕");
 
     }
