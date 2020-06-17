@@ -180,7 +180,7 @@ class Cards{   //牌组
 	}
 
 	private void initiaCards(){
-		for (int i=2;i<=14;i++){
+		for (int i=2;i<14;i++){
 			for(int j=1;j<=4;j++){
 				cardDataBase[i][j]=new Card(Name(i, j),i);
 			}
