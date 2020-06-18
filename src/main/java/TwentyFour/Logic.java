@@ -64,9 +64,11 @@ public class Logic {
         ActionListener stand = new ActionListener(){ //创建结束汇合按钮监听事件
             public void actionPerformed(ActionEvent e){
                 String toSend = ClientDate.genRequestCard("stopRequestCard", "client1");
+                System.out.println("发送停止要拍指令"+toSend);
 
                 try {
                     server.writer.write(toSend + "\n");
+                    server.writer.flush();
                     if(first.equals("client1")){
                         String s1;
                         String dateType1;
