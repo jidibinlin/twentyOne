@@ -10,11 +10,12 @@ public class WinDialog extends JDialog {
 
     public WinDialog(Frame owner, String title, boolean modal) {
         super(owner, title, modal);
-        BorderLayout l = new BorderLayout(20,20);
-        this.setLayout(l);
         JLabel lb = new JLabel(status);
-        this.add(lb,BorderLayout.CENTER);
-        this.setModal(true);
+        Container container = getContentPane();
+        container.setLayout(new BorderLayout());
+        container.add(lb,BorderLayout.CENTER);
+        this.add(container);
+        this.setBounds(120,120,200,200);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     
