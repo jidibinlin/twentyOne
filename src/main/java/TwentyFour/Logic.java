@@ -200,7 +200,7 @@ public class Logic {
                             try {
                                 server.writer.write(toSend2+"\n");
                                 server.writer.flush();
-                                System.out.println("向服务器发出要卡请求");
+                                System.out.println("向服务器发出要卡请求 line203");
                                 String cardDate = server.reader.readLine();
                                 System.out.println("收到服务器的卡牌");
                                 SendCard sendCard = DateParser.parseSendCard(cardDate);
