@@ -354,6 +354,6 @@ public class Logic {
         WinDialog.status=winner;
         WinDialog dia = new WinDialog(frame,"tips",true);
         dia.setVisible(true);
-        // Initialize();
+        Initialize();
     }
 }
