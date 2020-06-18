@@ -74,7 +74,7 @@ public class Logic {
                         bottom.hit.setEnabled(false);
                         bottom.stand.setEnabled(false);
                         gameCycle(status);
-                        return;
+                        // return;
                     }
 
                 } 
@@ -147,7 +147,7 @@ public class Logic {
                                 status=2;
                                 gameCycle(status);
 
-                                return;
+                                // return;
                             }
                         
 
@@ -161,7 +161,7 @@ public class Logic {
                             status=0;
                             gameCycle(status);
 
-                            return;
+                            // return;
                         }
                         else{
                             if(p1.getSumPoint() > p2.getSumPoint()){
@@ -172,7 +172,7 @@ public class Logic {
                                 status=1;
                                 gameCycle(status);
 
-                                return;
+                                // return;
 
                             }
                             else{
@@ -181,7 +181,7 @@ public class Logic {
                                  */
                                 status=2;
                                 gameCycle(status);
-                                return;
+                                // return;
                             }
                         }
                         
@@ -214,7 +214,7 @@ public class Logic {
                              */
                             status=2;
                             gameCycle(status);
-                            return;
+                            // return;
                         }
                         else{
                             if(p1.getSumPoint()==21 || p2.getSumPoint()==21){
@@ -224,7 +224,7 @@ public class Logic {
                                 status=0;
                                 gameCycle(status);
 
-                                return;
+                                // return;
                             }
                             else{
                                 if(p1.getSumPoint()>p2.getSumPoint()){
@@ -233,7 +233,7 @@ public class Logic {
                                      */
                                     status=1;
                                     gameCycle(status);
-                                    return;
+                                    // return;
                                 }
                                 else{
                                     /**
@@ -241,7 +241,7 @@ public class Logic {
                                      */
                                     status=2;
                                     gameCycle(status);
-                                    return;
+                                    // return;
                                 }
                             }
                         }
@@ -296,7 +296,7 @@ public class Logic {
                         status=2;
                         gameCycle(status);
 
-                         return;
+                        //  return;
                     }
 
 
