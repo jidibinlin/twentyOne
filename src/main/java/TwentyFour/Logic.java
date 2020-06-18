@@ -81,7 +81,7 @@ public class Logic {
                                 p2.addHideCard(card, true);
                             }
 
-                        }while(dateType1.equals("stopSend"));
+                        }while(!dateType1.equals("stopSend"));
                     }
                     else{
                         //后手停止要卡的情况
@@ -139,7 +139,7 @@ public class Logic {
                         System.out.println("添加卡牌");
                     }
 
-                }while(dateType.equals("stopSend"));
+                }while(!dateType.equals("stopSend"));
 
                 bottom.hit.setEnabled(true);  //后手等先手操作完成后将按钮设置为可用
                 bottom.stand.setEnabled(true);
