@@ -64,6 +64,7 @@ public class Logic {
                         status=1;
                         bottom.hit.setEnabled(false);
                         bottom.stand.setEnabled(false);
+                        gameCycle(status);
                         return;
                     }
 
