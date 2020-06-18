@@ -36,11 +36,11 @@ public class Logic {
         middle = new MiddlePanel(p1,p2);//中间卡牌界面 承载p1 p2
         left = new LeftPanel();//左部筹码界面
         right = new RightPanel();//右部卡组界面
-
 		frame.add(bottom, BorderLayout.SOUTH); //添加各个panel
 		frame.add(left, BorderLayout.WEST);
 		frame.add(right, BorderLayout.EAST);
         frame.add(middle, BorderLayout.CENTER);
+        Component [] a = frame.getComponents();
 
         server.connect();//与服务器建立链接
         try {
@@ -361,7 +361,7 @@ public class Logic {
         WinDialog.status=winner;
         WinDialog dia = new WinDialog(frame,"tips",true);
         dia.setVisible(true);
-        frame.removeAll();
+        frame.getContentPane().removeAll();
         Initialize();
     }
 }
