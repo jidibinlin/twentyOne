@@ -13,7 +13,6 @@ public class WinDialog extends JDialog {
         JLabel lb = new JLabel(status);
         this.add(lb,BorderLayout.CENTER);
         this.setModal(true);
-        this.setVisible(true);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     
