@@ -48,7 +48,6 @@ class PlayerPanel extends JPanel {   //玩家面板
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 1L;
 	private typeButton sumPointBut = new typeButton("0");
 	private CardPanel cardPanel=new CardPanel();
 	private int sumPoint=0;
