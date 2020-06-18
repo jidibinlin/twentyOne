@@ -40,7 +40,6 @@ public class Logic {
         frame.add(left, BorderLayout.WEST);
         frame.add(right, BorderLayout.EAST);
         frame.add(middle, BorderLayout.CENTER);
-        Component[] a = frame.getComponents();
 
         server.connect();// 与服务器建立链接
         try {
@@ -320,8 +319,10 @@ public class Logic {
 
         p1.addCard(client1_1);
         p1.addCard(client1_2);
+        System.out.println("p1卡牌添加完毕 "+client1_1.cardName +" "+client1_2.cardName);
         p2.addCard(client2_1);
         p2.addHideCard(client2_2, true);
+        System.out.println("p1卡牌添加完毕 "+client1_1.cardName +" "+client1_2.cardName);
         System.out.println("游戏开局初始化完毕");
         System.out.println("先手是" + ini.getFirst());
 
