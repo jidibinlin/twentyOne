@@ -20,7 +20,9 @@ public class Logic {
     private Cards cards;
     private int status;
     private JFrame frame = null;
+    private Thread th = null;
 
+    private Thread t1=null;
     public Logic(JFrame frame) {
         this.frame = frame;
 
@@ -109,10 +111,10 @@ public class Logic {
             }
         };
 
-        ActionListener stand = new ActionListener() { // 创建结束汇合按钮监听事件
+        ActionListener stand = new ActionListener() { // 创建结束回合按钮监听事件
             public void actionPerformed(ActionEvent e) {
                 Contact_Stand r = new Contact_Stand();
-                Thread th = new Thread(r);
+                th = new Thread(r);
                 th.start();
 
             }
@@ -120,8 +122,7 @@ public class Logic {
         bottom.hit.addActionListener(hit); // 添加事件
         bottom.stand.addActionListener(stand); // 添加事件
         Contact contac = new Contact();
-
-        Thread t1 = new Thread(contac);
+        t1 = new Thread(contac);
         t1.start();
 
     }
