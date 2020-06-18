@@ -40,6 +40,8 @@ public class Server {
 
     public void close(){
         try {
+            server.shutdownInput();
+            server.shutdownOutput();
             server.close();
         } catch (Exception e) {
             //TODO: handle exception
