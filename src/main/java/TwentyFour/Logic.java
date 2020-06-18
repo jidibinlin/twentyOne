@@ -59,6 +59,7 @@ public class Logic {
                          * 如果卡牌点数大于21点则 p2赢 
                          * 退出
                          */
+                        return;
                     }
 
                 } 
