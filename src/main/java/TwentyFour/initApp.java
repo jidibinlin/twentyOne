@@ -67,12 +67,12 @@ public class initApp {
 		frame.add(L.right, BorderLayout.EAST);
 		frame.add(L.middle, BorderLayout.CENTER);
 		// frame.setVisible(true);
-		try {
-			L.startVs();//开始对决
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		// try {
+		// 	L.startVs();//开始对决
+		// } catch (IOException e) {
+		// 	// TODO Auto-generated catch block
+		// 	e.printStackTrace();
+		// }
 	}
 
 }

@@ -15,6 +15,7 @@ public class Logic {
     private PlayerPanel p1;
     private PlayerPanel p2;
     private Cards cards = new Cards();
+    private int status;
 
     public void Initialize() {
 
@@ -28,6 +29,7 @@ public class Logic {
         server.connect();//与服务器建立链接
         try {
             getInitCard();//向服务器拉取初始卡牌
+            startVs();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -59,6 +61,9 @@ public class Logic {
                          * 如果卡牌点数大于21点则 p2赢 
                          * 退出
                          */
+                        status=1;
+                        bottom.hit.setEnabled(false);
+                        bottom.stand.setEnabled(false);
                         return;
                     }
 
@@ -129,6 +134,8 @@ public class Logic {
                                 /**
                                  * p1 Win 退出
                                  */
+                                status=2;
+                                gameCycle(status);
 
                                 return;
                             }
@@ -141,6 +148,8 @@ public class Logic {
                              * 平局
                              * 游戏结束
                              */
+                            status=0;
+                            gameCycle(status);
 
                             return;
                         }
@@ -150,6 +159,8 @@ public class Logic {
                                  * p1 win
                                  * 退出
                                  */
+                                status=1;
+                                gameCycle(status);
 
                                 return;
 
@@ -158,6 +169,8 @@ public class Logic {
                                 /**
                                  * p2 win 退出
                                  */
+                                status=2;
+                                gameCycle(status);
                                 return;
                             }
                         }
@@ -189,6 +202,8 @@ public class Logic {
                             /**
                              * p2 win
                              */
+                            status=2;
+                            gameCycle(status);
                             return;
                         }
                         else{
@@ -196,6 +211,8 @@ public class Logic {
                                 /**
                                  * 平局
                                  */
+                                status=0;
+                                gameCycle(status);
 
                                 return;
                             }
@@ -204,12 +221,16 @@ public class Logic {
                                     /**
                                      * p1 win
                                      */
+                                    status=1;
+                                    gameCycle(status);
                                     return;
                                 }
                                 else{
                                     /**
                                      * p2 win
                                      */
+                                    status=2;
+                                    gameCycle(status);
                                     return;
                                 }
                             }
@@ -262,6 +283,8 @@ public class Logic {
                         /**
                          * p1 win 退出
                          */
+                        status=2;
+                        gameCycle(status);
 
                          return;
                     }
@@ -297,5 +320,28 @@ public class Logic {
         System.out.println("游戏开局初始化完毕");
         System.out.println("先手是"+ini.getFirst());
 
+    }
+
+    public void gameCycle(int status){
+        String winner="";
+        switch (status) {
+            case 0:
+                winner="平局";
+                
+                break;
+            case 1:
+                winner="你赢了";
+                
+                break;
+            case 2:
+                winner="你输了";
+                break;
+        
+            default:
+                break;
+        }
+        server.close();
+        WinDialog dia = new WinDialog(winner);
+        Initialize();
     }
 }
