@@ -37,6 +37,11 @@ public class Logic {
         left = new LeftPanel();//左部筹码界面
         right = new RightPanel();//右部卡组界面
 
+		frame.add(bottom, BorderLayout.SOUTH); //添加各个panel
+		frame.add(left, BorderLayout.WEST);
+		frame.add(right, BorderLayout.EAST);
+		frame.add(middle, BorderLayout.CENTER);
+
         server.connect();//与服务器建立链接
         try {
             getInitCard();//向服务器拉取初始卡牌
