@@ -77,7 +77,7 @@ public class Logic {
                          * 如果卡牌点数大于21点则 p2赢 
                          * 退出
                          */
-                        status=1;
+                        status=2;
                         bottom.hit.setEnabled(false);
                         bottom.stand.setEnabled(false);
                         gameCycle(status);
@@ -151,7 +151,7 @@ public class Logic {
                                 /**
                                  * p1 Win 退出
                                  */
-                                status=2;
+                                status=1;
                                 gameCycle(status);
 
                                 // return;
@@ -300,7 +300,7 @@ public class Logic {
                         /**
                          * p1 win 退出
                          */
-                        status=2;
+                        status=1;
                         gameCycle(status);
 
                         //  return;
