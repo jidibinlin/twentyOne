@@ -19,6 +19,7 @@ public class DateParser {
         String result;
         String[] strArry = foo.split(",");
         result = strArry[0].split(":")[1].replace("\"", "");
+        result = result.replace("}", "");
         return result;
 
     }

@@ -63,9 +63,29 @@ public class Logic {
 
         ActionListener stand = new ActionListener(){ //创建结束汇合按钮监听事件
             public void actionPerformed(ActionEvent e){
+                Contact_Stand r = new Contact_Stand();
+                Thread th = new Thread(r);
+                th.start();
+
+
+
+
+            }
+        };
+        bottom.hit.addActionListener(hit); //添加事件
+        bottom.stand.addActionListener(stand); //添加事件
+        Contact contac = new Contact();
+
+        Thread t1 = new Thread(contac);
+        t1.start();
+
+
+    }
+
+    class Contact_Stand implements Runnable{
+        public void run(){
                 String toSend = ClientDate.genRequestCard("stopRequestCard", "client1");
                 System.out.println("发送停止要拍指令"+toSend);
-
                 try {
                     server.writer.write(toSend + "\n");
                     server.writer.flush();
@@ -94,17 +114,7 @@ public class Logic {
                     e1.printStackTrace();
                 }
 
-
-
-            }
-        };
-        bottom.hit.addActionListener(hit); //添加事件
-        bottom.stand.addActionListener(stand); //添加事件
-        Contact contac = new Contact();
-
-        Thread t1 = new Thread(contac);
-        t1.start();
-
+        }
 
     }
 
