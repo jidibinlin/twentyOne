@@ -57,6 +57,21 @@ public class Logic {
                 } 
                 else{
                     //后手要卡的情况
+                    try {
+                        server.writer.write(toSend+"\n");
+                        server.writer.flush();
+                        System.out.println("向服务器发出要卡请求");
+                        String cardDate = server.reader.readLine();
+                        System.out.println("收到服务器的卡牌");
+                        SendCard sendCard = DateParser.parseSendCard(cardDate);
+                        Card card = cards.getCard(sendCard.getCardName());
+                        p1.addCard(card);
+                        System.out.println("添加卡牌");
+                        
+                    } catch (IOException e1) {
+                        //TODO: handle exception
+                        e1.printStackTrace();
+                    }
                 }
             }
         };
