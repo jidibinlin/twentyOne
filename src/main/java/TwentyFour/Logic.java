@@ -102,6 +102,11 @@ public class Logic {
                         //TODO: handle exception
                         e1.printStackTrace();
                     }
+
+                    if(p1.getSumPoint() >21){
+                        status = 2;
+                        gameCycle(status);
+                    }
                 }
             }
         };
