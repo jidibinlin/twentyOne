@@ -40,10 +40,6 @@ public class Server {
 
     public void close(){
         try {
-            writer.close();
-            reader.close();
-            read.close();
-            write.close();
             server.close();
         } catch (Exception e) {
             //TODO: handle exception
