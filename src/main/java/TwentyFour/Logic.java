@@ -1,6 +1,9 @@
 package TwentyFour;
 
 import java.io.IOException;
+
+import javax.swing.JFrame;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -16,6 +19,12 @@ public class Logic {
     private PlayerPanel p2;
     private Cards cards = new Cards();
     private int status;
+    private JFrame frame=null;
+
+    public Logic (JFrame frame){
+        this.frame = frame;
+
+    }
 
     public void Initialize() {
 
@@ -342,8 +351,8 @@ public class Logic {
                 break;
         }
         server.close();
-        WinDialog dia = new WinDialog(winner);
-        dia.setVisible(true);
+        WinDialog.status=winner;
+        WinDialog dia = new WinDialog(frame,"tips",true);
         // Initialize();
     }
 }
