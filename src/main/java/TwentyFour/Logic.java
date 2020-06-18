@@ -37,32 +37,6 @@ public class Logic {
     public void startVs() throws IOException {
         String dateType=null;
         String s=null;
-        if(first.equals("client1")){
-            bottom.hit.setEnabled(true);
-            bottom.stand.setEnabled(true);
-        }
-        else{
-            bottom.hit.setEnabled(false);
-            bottom.stand.setEnabled(false);
-            do{
-                s = server.reader.readLine();
-                dateType = DateParser.getDateType(s);
-                if(dateType.equals("sendCard")){
-                    SendCard tmp = DateParser.parseSendCard(s);
-                    System.out.println("收到服务器卡牌");
-                    Card card = cards.getCard(tmp.getCardName());
-                    p2.addHideCard(card, true);
-                    System.out.println("添加卡牌");
-                }
-
-            }while(dateType.equals("stopSend"));
-
-            bottom.hit.setEnabled(true);
-            bottom.stand.setEnabled(true);
-
-
-        }
-
         ActionListener hit = new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 String toSend = ClientDate.genRequestCard("requestCard", "client1");
@@ -120,6 +94,33 @@ public class Logic {
         };
         bottom.hit.addActionListener(hit);
         bottom.stand.addActionListener(stand);
+
+        if(first.equals("client1")){
+            bottom.hit.setEnabled(true);
+            bottom.stand.setEnabled(true);
+        }
+        else{
+            bottom.hit.setEnabled(false);
+            bottom.stand.setEnabled(false);
+            do{
+                s = server.reader.readLine();
+                dateType = DateParser.getDateType(s);
+                if(dateType.equals("sendCard")){
+                    SendCard tmp = DateParser.parseSendCard(s);
+                    System.out.println("收到服务器卡牌");
+                    Card card = cards.getCard(tmp.getCardName());
+                    p2.addHideCard(card, true);
+                    System.out.println("添加卡牌");
+                }
+
+            }while(dateType.equals("stopSend"));
+
+            bottom.hit.setEnabled(true);
+            bottom.stand.setEnabled(true);
+
+
+        }
+
 
     }
 
