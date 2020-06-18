@@ -35,8 +35,6 @@ public class Logic {
     }
 
     public void startVs() throws IOException {
-        String dateType=null; //数据类型
-        String s=null; //从服务器中接受的数据
         ActionListener hit = new ActionListener(){ //创建要卡按钮监听事件
             public void actionPerformed(ActionEvent e) {
                 String toSend = ClientDate.genRequestCard("requestCard", "client1");
@@ -100,50 +98,54 @@ public class Logic {
         };
         bottom.hit.addActionListener(hit); //添加事件
         bottom.stand.addActionListener(stand); //添加事件
+        Contact contac = new Contact();
 
-        if(first.equals("client1")){//先手时按钮可用
-            bottom.hit.setEnabled(true);
-            bottom.stand.setEnabled(true);
+        Thread t1 = new Thread(contac);
+        t1.start();
+
+
+    }
+
+    class Contact implements Runnable{
+        public void run(){
+            String dateType=null; //数据类型
+            String s=null; //从服务器中接受的数据
+            if(first.equals("client1")){//先手时按钮可用
+                bottom.hit.setEnabled(true);
+                bottom.stand.setEnabled(true);
+            }
+            else{
+                bottom.hit.setEnabled(false); //后手时按钮不可用 并在接收完初始卡牌后开始监听服务器
+                bottom.stand.setEnabled(false);
+                do{
+
+                    /**
+                     * 程序会在这里卡住一直等待服务器的数据
+                     * 程序启动流程是  绘制frame->创建各个面板->从服务器拉取初始的两张卡牌->向frame中添加各个面板->开始对局
+                     */
+
+                    try {
+                        s = server.reader.readLine();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    dateType = DateParser.getDateType(s);
+                    if(dateType.equals("sendCard")){
+                        SendCard tmp = DateParser.parseSendCard(s);
+                        System.out.println("收到服务器卡牌");
+                        Card card = cards.getCard(tmp.getCardName());
+                        p2.addHideCard(card, true);
+                        System.out.println("添加卡牌");
+                    }
+
+                }while(dateType.equals("stopSend"));
+
+                bottom.hit.setEnabled(true);  //后手等先手操作完成后将按钮设置为可用
+                bottom.stand.setEnabled(true);
+            }
+
         }
-        else{
-            bottom.hit.setEnabled(false); //后手时按钮不可用 并在接收完初始卡牌后开始监听服务器
-            bottom.stand.setEnabled(false);
-            do{
-
-
-
-
-
-
-
-                /**
-                 * 程序会在这里卡住一直等待服务器的数据
-                 * 程序启动流程是  绘制frame->创建各个面板->从服务器拉取初始的两张卡牌->向frame中添加各个面板->开始对局
-                 */
-
-
-
-
-
-
-                s = server.reader.readLine();
-                dateType = DateParser.getDateType(s);
-                if(dateType.equals("sendCard")){
-                    SendCard tmp = DateParser.parseSendCard(s);
-                    System.out.println("收到服务器卡牌");
-                    Card card = cards.getCard(tmp.getCardName());
-                    p2.addHideCard(card, true);
-                    System.out.println("添加卡牌");
-                }
-
-            }while(dateType.equals("stopSend"));
-
-            bottom.hit.setEnabled(true);  //后手等先手操作完成后将按钮设置为可用
-            bottom.stand.setEnabled(true);
-
-
-        }
-
 
     }
 
