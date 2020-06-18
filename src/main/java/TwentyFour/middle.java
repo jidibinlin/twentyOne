@@ -14,7 +14,6 @@ class MiddlePanel extends JPanel {
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 1L;
 	public PlayerPanel p1 = null;
 	public PlayerPanel p2=null;
 
@@ -101,7 +100,6 @@ class CardPanel extends JPanel { //卡牌面板
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 1L;
 	private int sumPoint = 0;
 	private int oppSumPoint=0;
 	public ArrayList <CardContainer> cardContainers  = new ArrayList<CardContainer>();
@@ -164,7 +162,6 @@ class CardContainer extends JLabel { //卡牌容器 每个容器装有一张单�
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 1L;
 	// private static Cards cards = new Cards(); //牌库
 	private ImageIcon i =null;
 	public Card card;

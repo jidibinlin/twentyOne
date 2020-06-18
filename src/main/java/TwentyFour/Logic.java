@@ -44,6 +44,7 @@ public class Logic {
         server.connect();// 与服务器建立链接
         try {
             getInitCard();// 向服务器拉取初始卡牌
+            frame.setVisible(true);
             startVs();
         } catch (IOException e) {
             // TODO Auto-generated catch block
