@@ -50,7 +50,7 @@ public class initApp {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		BorderLayout borderLayout = new BorderLayout(20, 20);
 		frame.setLayout(new BorderLayout());
-		Logic L = new Logic();
+		Logic L = new Logic(frame);
 		L.Initialize();//初始化
 
 		// PlayerPanel p1=new PlayerPanel();
