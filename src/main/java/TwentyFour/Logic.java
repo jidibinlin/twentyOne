@@ -353,6 +353,7 @@ public class Logic {
         server.close();
         WinDialog.status=winner;
         WinDialog dia = new WinDialog(frame,"tips",true);
+        dia.setVisible(true);
         // Initialize();
     }
 }
