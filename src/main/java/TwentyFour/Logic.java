@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Logic {
-    Server server = new Server();
+    Server server = null;
     String first;
 	public BottomPanel bottom;
 	public MiddlePanel middle;
@@ -17,7 +17,7 @@ public class Logic {
 
     private PlayerPanel p1;
     private PlayerPanel p2;
-    private Cards cards = new Cards();
+    private Cards cards;
     private int status;
     private JFrame frame=null;
 
@@ -27,6 +27,8 @@ public class Logic {
     }
 
     public void Initialize() {
+        server = new Server();
+        cards = new Cards();
 
         p1=new PlayerPanel();//己方界面
         p2=new PlayerPanel();//对方界面
