@@ -106,6 +106,7 @@ public class Logic {
                     if (p1.getSumPoint() > 21) {
                         status = 2;
                         gameCycle(status);
+                        return;
                     }
                 }
             }
