@@ -18,16 +18,16 @@ public class Logic {
 
     public void Initialize() {
 
-        p1=new PlayerPanel();
-        p2=new PlayerPanel();
-        bottom = new BottomPanel();
-        middle = new MiddlePanel(p1,p2);
-        left = new LeftPanel();
-        right = new RightPanel();
+        p1=new PlayerPanel();//己方界面
+        p2=new PlayerPanel();//对方界面
+        bottom = new BottomPanel();//底部按钮界面
+        middle = new MiddlePanel(p1,p2);//中间卡牌界面 承载p1 p2
+        left = new LeftPanel();//左部筹码界面
+        right = new RightPanel();//右部卡组界面
 
-        server.connect();
+        server.connect();//与服务器建立链接
         try {
-            getInitCard();
+            getInitCard();//向服务器拉取初始卡牌
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -35,12 +35,12 @@ public class Logic {
     }
 
     public void startVs() throws IOException {
-        String dateType=null;
-        String s=null;
-        ActionListener hit = new ActionListener(){
+        String dateType=null; //数据类型
+        String s=null; //从服务器中接受的数据
+        ActionListener hit = new ActionListener(){ //创建要卡按钮监听事件
             public void actionPerformed(ActionEvent e) {
                 String toSend = ClientDate.genRequestCard("requestCard", "client1");
-                if(first.equals("client1")){
+                if(first.equals("client1")){ //如果是先手的话就向服务器请求数据
                     try {
                         server.writer.write(toSend + "\n");
                         server.writer.flush();
@@ -57,10 +57,13 @@ public class Logic {
                     }
 
                 } 
+                else{
+                    //后手要卡的情况
+                }
             }
         };
 
-        ActionListener stand = new ActionListener(){
+        ActionListener stand = new ActionListener(){ //创建结束汇合按钮监听事件
             public void actionPerformed(ActionEvent e){
                 String toSend = ClientDate.genRequestCard("stopRequestCard", "client1");
 
@@ -82,6 +85,9 @@ public class Logic {
 
                         }while(dateType1.equals("stopSend"));
                     }
+                    else{
+                        //后手停止要卡的情况
+                    }
 
                 } catch (IOException e1) {
                     // TODO Auto-generated catch block
@@ -92,17 +98,34 @@ public class Logic {
 
             }
         };
-        bottom.hit.addActionListener(hit);
-        bottom.stand.addActionListener(stand);
+        bottom.hit.addActionListener(hit); //添加事件
+        bottom.stand.addActionListener(stand); //添加事件
 
-        if(first.equals("client1")){
+        if(first.equals("client1")){//先手时按钮可用
             bottom.hit.setEnabled(true);
             bottom.stand.setEnabled(true);
         }
         else{
-            bottom.hit.setEnabled(false);
+            bottom.hit.setEnabled(false); //后手时按钮不可用 并在接收完初始卡牌后开始监听服务器
             bottom.stand.setEnabled(false);
             do{
+
+
+
+
+
+
+
+                /**
+                 * 程序会在这里卡住一直等待服务器的数据
+                 * 程序启动流程是  绘制frame->创建各个面板->从服务器拉取初始的两张卡牌->向frame中添加各个面板->开始对局
+                 */
+
+
+
+
+
+
                 s = server.reader.readLine();
                 dateType = DateParser.getDateType(s);
                 if(dateType.equals("sendCard")){
@@ -115,7 +138,7 @@ public class Logic {
 
             }while(dateType.equals("stopSend"));
 
-            bottom.hit.setEnabled(true);
+            bottom.hit.setEnabled(true);  //后手等先手操作完成后将按钮设置为可用
             bottom.stand.setEnabled(true);
 
 
