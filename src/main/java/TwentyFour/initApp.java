@@ -62,10 +62,10 @@ public class initApp {
 		// System.out.println(p2.getSumPoint());
 		// left = new LeftPanel();
 		// right = new RightPanel();
-		frame.add(L.bottom, BorderLayout.SOUTH); //添加各个panel
-		frame.add(L.left, BorderLayout.WEST);
-		frame.add(L.right, BorderLayout.EAST);
-		frame.add(L.middle, BorderLayout.CENTER);
+		// frame.add(L.bottom, BorderLayout.SOUTH); //添加各个panel
+		// frame.add(L.left, BorderLayout.WEST);
+		// frame.add(L.right, BorderLayout.EAST);
+		// frame.add(L.middle, BorderLayout.CENTER);
 		// frame.setVisible(true);
 		// try {
 		// 	L.startVs();//开始对决
