@@ -322,7 +322,7 @@ public class Logic {
         System.out.println("p1卡牌添加完毕 "+client1_1.cardName +" "+client1_2.cardName);
         p2.addCard(client2_1);
         p2.addHideCard(client2_2, true);
-        System.out.println("p1卡牌添加完毕 "+client1_1.cardName +" "+client1_2.cardName);
+        System.out.println("p2卡牌添加完毕 "+client2_1.cardName +" "+client2_2.cardName);
         System.out.println("游戏开局初始化完毕");
         System.out.println("先手是" + ini.getFirst());
 
