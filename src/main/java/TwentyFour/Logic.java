@@ -54,6 +54,13 @@ public class Logic {
                         e1.printStackTrace();
                     }
 
+                    if(p1.getSumPoint() > 21){
+                        /**
+                         * 如果卡牌点数大于21点则 p2赢 
+                         * 退出
+                         */
+                    }
+
                 } 
                 else{
                     //后手要卡的情况
@@ -104,12 +111,12 @@ public class Logic {
                 try {
                     server.writer.write(toSend + "\n");
                     server.writer.flush();
-                    if(first.equals("client1")){
+                    if(first.equals("client1")){ //先手停止要卡
                         String s1;
                         String dateType1;
                         bottom.hit.setEnabled(false);
                         bottom.stand.setEnabled(false);
-                        do{
+                        do{ //获取p2发送的卡牌
                             s1 = server.reader.readLine();
                             dateType1 = DateParser.getDateType(s1);
                             if(dateType1.equals("sendCard")){
@@ -117,11 +124,95 @@ public class Logic {
                                 Card card = cards.getCard(tmp.getCardName());
                                 p2.addHideCard(card, true);
                             }
+                            if(p2.getSumPoint()>21){
+                                /**
+                                 * p1 Win 退出
+                                 */
+
+                                return;
+                            }
+                        
 
                         }while(!dateType1.equals("stopSend"));
+
+                        if(p1.getSumPoint()==21 || p2.getSumPoint() ==21){
+                            /**
+                             * 平局
+                             * 游戏结束
+                             */
+
+                            return;
+                        }
+                        else{
+                            if(p1.getSumPoint() > p2.getSumPoint()){
+                                /**
+                                 * p1 win
+                                 * 退出
+                                 */
+
+                                return;
+
+                            }
+                            else{
+                                /**
+                                 * p2 win 退出
+                                 */
+                                return;
+                            }
+                        }
+                        
                     }
                     else{
                         //后手停止要卡的情况
+                        while(p1.getSumPoint()<17){
+                            String toSend2 = ClientDate.genRequestCard("requestCard", "client1");
+                            try {
+                                server.writer.write(toSend2+"\n");
+                                server.writer.flush();
+                                System.out.println("向服务器发出要卡请求");
+                                String cardDate = server.reader.readLine();
+                                System.out.println("收到服务器的卡牌");
+                                SendCard sendCard = DateParser.parseSendCard(cardDate);
+                                Card card = cards.getCard(sendCard.getCardName());
+                                p1.addCard(card);
+                                System.out.println("添加卡牌");
+                                
+                            } catch (IOException e1) {
+                                //TODO: handle exception
+                                e1.printStackTrace();
+                            }
+
+                        }
+
+                        if(p1.getSumPoint() > 21){
+                            /**
+                             * p2 win
+                             */
+                            return;
+                        }
+                        else{
+                            if(p1.getSumPoint()==21 || p2.getSumPoint()==21){
+                                /**
+                                 * 平局
+                                 */
+
+                                return;
+                            }
+                            else{
+                                if(p1.getSumPoint()>p2.getSumPoint()){
+                                    /**
+                                     * p1 win
+                                     */
+                                    return;
+                                }
+                                else{
+                                    /**
+                                     * p2 win
+                                     */
+                                    return;
+                                }
+                            }
+                        }
                     }
 
                 } catch (IOException e1) {
@@ -165,6 +256,15 @@ public class Logic {
                         p2.addHideCard(card, true);
                         System.out.println("添加卡牌");
                     }
+
+                    if(p2.getSumPoint()>21){
+                        /**
+                         * p1 win 退出
+                         */
+
+                         return;
+                    }
+
 
                 }while(!dateType.equals("stopSend"));
 
