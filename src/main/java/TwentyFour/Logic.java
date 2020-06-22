@@ -42,6 +42,7 @@ public class Logic {
         frame.add(left, BorderLayout.WEST);
         frame.add(right, BorderLayout.EAST);
         frame.add(middle, BorderLayout.CENTER);
+        frame.setVisible(true);
 
         server.connect();// 与服务器建立链接
         try {

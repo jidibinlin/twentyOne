@@ -1,12 +1,12 @@
-Date : 2020-06-17 16:52:07
+Date : 2020-06-19 12:12:55
 Directory : /home/qibin/Documents/learnsource/Source/java/TwentyFour
-Total : 13 files,  630 codes, 91 comments, 171 blanks, all 892 lines
+Total : 14 files,  864 codes, 213 comments, 227 blanks, all 1304 lines
 
 Languages
 +----------+------------+------------+------------+------------+------------+
 | language | files      | code       | comment    | blank      | total      |
 +----------+------------+------------+------------+------------+------------+
-| Java     |         11 |        555 |         87 |        164 |        806 |
+| Java     |         12 |        789 |        209 |        220 |      1,218 |
 | XML      |          2 |         75 |          4 |          7 |         86 |
 +----------+------------+------------+------------+------------+------------+
 
@@ -14,11 +14,11 @@ Directories
 +---------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
 | path                                                                                              | files      | code       | comment    | blank      | total      |
 +---------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
-| .                                                                                                 |         13 |        630 |         91 |        171 |        892 |
-| src                                                                                               |         11 |        555 |         87 |        164 |        806 |
-| src/main                                                                                          |         10 |        545 |         64 |        155 |        764 |
-| src/main/java                                                                                     |         10 |        545 |         64 |        155 |        764 |
-| src/main/java/TwentyFour                                                                          |         10 |        545 |         64 |        155 |        764 |
+| .                                                                                                 |         14 |        864 |        213 |        227 |      1,304 |
+| src                                                                                               |         12 |        789 |        209 |        220 |      1,218 |
+| src/main                                                                                          |         11 |        779 |        186 |        211 |      1,176 |
+| src/main/java                                                                                     |         11 |        779 |        186 |        211 |      1,176 |
+| src/main/java/TwentyFour                                                                          |         11 |        779 |        186 |        211 |      1,176 |
 | src/test                                                                                          |          1 |         10 |         23 |          9 |         42 |
 | src/test/java                                                                                     |          1 |         10 |         23 |          9 |         42 |
 | src/test/java/TwentyFour                                                                          |          1 |         10 |         23 |          9 |         42 |
@@ -30,16 +30,17 @@ Files
 +---------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
 | /home/qibin/Documents/learnsource/Source/java/TwentyFour/pom.xml                                  | XML      |         70 |          4 |          7 |         81 |
 | /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/ClientDate.java | Java     |         34 |          0 |          9 |         43 |
-| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/DateParser.java | Java     |        123 |          0 |         42 |        165 |
-| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/Logic.java      | Java     |         43 |          1 |         13 |         57 |
-| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/Server.java     | Java     |         31 |          1 |          8 |         40 |
-| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/bottom.java     | Java     |         14 |          0 |          4 |         18 |
-| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/initApp.java    | Java     |         34 |         21 |         17 |         72 |
+| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/DateParser.java | Java     |        139 |          0 |         48 |        187 |
+| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/Logic.java      | Java     |        271 |         43 |         51 |        365 |
+| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/Server.java     | Java     |         39 |          2 |          9 |         50 |
+| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/WinDialog.java  | Java     |         15 |          0 |          5 |         20 |
+| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/bottom.java     | Java     |         17 |          0 |          5 |         22 |
+| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/initApp.java    | Java     |         31 |         34 |         18 |         83 |
 | /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/left.java       | Java     |          9 |          0 |          3 |         12 |
-| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/middle.java     | Java     |        236 |         41 |         53 |        330 |
-| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/right.java      | Java     |          9 |          0 |          2 |         11 |
-| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/typeButton.java | Java     |         12 |          0 |          4 |         16 |
+| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/middle.java     | Java     |        195 |         81 |         52 |        328 |
+| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/right.java      | Java     |         14 |          0 |          1 |         15 |
+| /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/main/java/TwentyFour/typeButton.java | Java     |         15 |         26 |         10 |         51 |
 | /home/qibin/Documents/learnsource/Source/java/TwentyFour/src/test/java/TwentyFour/AppTest.java    | Java     |         10 |         23 |          9 |         42 |
 | /home/qibin/Documents/learnsource/Source/java/TwentyFour/流程图.svg                                  | XML      |          5 |          0 |          0 |          5 |
-| Total                                                                                             |          |        630 |         91 |        171 |        892 |
+| Total                                                                                             |          |        864 |        213 |        227 |      1,304 |
 +---------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

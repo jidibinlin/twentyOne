@@ -1,27 +1,27 @@
 # Summary
 
-Date : 2020-06-17 16:52:07
+Date : 2020-06-19 12:12:55
 
 Directory /home/qibin/Documents/learnsource/Source/java/TwentyFour
 
-Total : 13 files,  630 codes, 91 comments, 171 blanks, all 892 lines
+Total : 14 files,  864 codes, 213 comments, 227 blanks, all 1304 lines
 
 [details](details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| Java | 11 | 555 | 87 | 164 | 806 |
+| Java | 12 | 789 | 209 | 220 | 1,218 |
 | XML | 2 | 75 | 4 | 7 | 86 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 13 | 630 | 91 | 171 | 892 |
-| src | 11 | 555 | 87 | 164 | 806 |
-| src/main | 10 | 545 | 64 | 155 | 764 |
-| src/main/java | 10 | 545 | 64 | 155 | 764 |
-| src/main/java/TwentyFour | 10 | 545 | 64 | 155 | 764 |
+| . | 14 | 864 | 213 | 227 | 1,304 |
+| src | 12 | 789 | 209 | 220 | 1,218 |
+| src/main | 11 | 779 | 186 | 211 | 1,176 |
+| src/main/java | 11 | 779 | 186 | 211 | 1,176 |
+| src/main/java/TwentyFour | 11 | 779 | 186 | 211 | 1,176 |
 | src/test | 1 | 10 | 23 | 9 | 42 |
 | src/test/java | 1 | 10 | 23 | 9 | 42 |
 | src/test/java/TwentyFour | 1 | 10 | 23 | 9 | 42 |
