@@ -177,7 +177,7 @@ public class Logic {
 
                     } while (!dateType1.equals("stopSend"));
 
-                    if (p1.getSumPoint() == 21 && p2.getSumPoint() == 21) {
+                    if ((p1.getSumPoint()== 21) && (p2.getSumPoint() == 21)) {
                         /**
                          * 平局 游戏结束
                          */
