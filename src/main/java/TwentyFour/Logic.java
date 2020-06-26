@@ -12,7 +12,7 @@ public class Logic {
     String first;
     public BottomPanel bottom;
     public MiddlePanel middle;
-    public LeftPanel left;
+    public LeftPanel left = new LeftPanel();
     public RightPanel right = new RightPanel();
 
     private PlayerPanel p1;
@@ -36,7 +36,7 @@ public class Logic {
         p2 = new PlayerPanel();// 对方界面
         bottom = new BottomPanel();// 底部按钮界面
         middle = new MiddlePanel(p1, p2);// 中间卡牌界面 承载p1 p2
-        left = new LeftPanel();// 左部筹码界面
+        // left = new LeftPanel();// 左部筹码界面
         // right = new RightPanel();// 右部卡组界面
         frame.add(bottom, BorderLayout.SOUTH); // 添加各个panel
         frame.add(left, BorderLayout.WEST);
