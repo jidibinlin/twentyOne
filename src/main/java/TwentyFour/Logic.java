@@ -118,6 +118,7 @@ public class Logic {
 
                     if (p1.getSumPoint() > 21) {
                         status = 2;
+                        p2.turnFace();
                         changeChip(status);
                         gameCycle(status);
                         return;
@@ -167,6 +168,7 @@ public class Logic {
                              * p1 Win 退出
                              */
                             status = 1;
+                            p2.turnFace();
                             changeChip(status);
                             gameCycle(status);
 
@@ -180,6 +182,7 @@ public class Logic {
                          * 平局 游戏结束
                          */
                         status = 0;
+                        p2.turnFace();
                         changeChip(status);
                         gameCycle(status);
 
@@ -190,6 +193,7 @@ public class Logic {
                              * p1 win 退出
                              */
                             status = 1;
+                            p2.turnFace();
                             changeChip(status);
                             gameCycle(status);
 
@@ -200,6 +204,7 @@ public class Logic {
                              * p2 win 退出
                              */
                             status = 2;
+                            p2.turnFace();
                             changeChip(status);
                             gameCycle(status);
                             return;
@@ -237,6 +242,7 @@ public class Logic {
                          * p2 win
                          */
                         status = 2;
+                        p2.turnFace();
                         changeChip(status);
                         gameCycle(status);
                         return;
@@ -246,6 +252,7 @@ public class Logic {
                              * 平局
                              */
                             status = 0;
+                            p2.turnFace();
                             changeChip(status);
                             gameCycle(status);
 
@@ -256,6 +263,7 @@ public class Logic {
                                  * p1 win
                                  */
                                 status = 1;
+                                p2.turnFace();
                                 changeChip(status);
                                 gameCycle(status);
                                 return;
@@ -264,6 +272,7 @@ public class Logic {
                                  * p2 win
                                  */
                                 status = 2;
+                                p2.turnFace();
                                 changeChip(status);
                                 gameCycle(status);
                                 return;
@@ -318,6 +327,7 @@ public class Logic {
                          * p1 win 退出
                          */
                         status = 1;
+                        p2.turnFace();
                         changeChip(status);
                         gameCycle(status);
 

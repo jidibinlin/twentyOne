@@ -94,6 +94,10 @@ class PlayerPanel extends JPanel {   //玩家面板
 	public int getOppSumPoint() { //获取显示的分数
 		return oppSumPoint;
 	}
+
+	public void turnFace(){
+		cardPanel.turnFace();
+	}
 }
 
 class CardPanel extends JPanel { //卡牌面板
@@ -155,6 +159,9 @@ class CardPanel extends JPanel { //卡牌面板
 		}
 		return oppSumPoint;
 
+	}
+	public void turnFace(){
+		cardContainers.get(cardContainers.size()).turnFace();
 	}
 }
 
