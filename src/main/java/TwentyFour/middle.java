@@ -97,6 +97,7 @@ class PlayerPanel extends JPanel {   //玩家面板
 
 	public void turnFace(){
 		cardPanel.turnFace();
+		sumPointBut.setText(String.valueOf(sumPoint));
 	}
 }
 
