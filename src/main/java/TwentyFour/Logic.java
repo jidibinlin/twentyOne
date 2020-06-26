@@ -55,6 +55,17 @@ public class Logic {
         }
     }
 
+    public void changeChip(int status){
+        int orig =Integer.parseInt(left.chip.getText());
+        if(status == 0)
+            return;
+        else if(status == 1)
+            left.chip.setText(""+(orig+10));
+        else if(status == 2)
+            left.chip.setText(""+(orig-10));
+
+    }
+
     public void startVs() throws IOException {
         ActionListener hit = new ActionListener() { // 创建要卡按钮监听事件
             public void actionPerformed(ActionEvent e) {
@@ -82,6 +93,7 @@ public class Logic {
                         status = 2;
                         bottom.hit.setEnabled(false);
                         bottom.stand.setEnabled(false);
+                        changeChip(status);
                         gameCycle(status);
                         return;
                     }
@@ -106,6 +118,7 @@ public class Logic {
 
                     if (p1.getSumPoint() > 21) {
                         status = 2;
+                        changeChip(status);
                         gameCycle(status);
                         return;
                     }
@@ -154,6 +167,7 @@ public class Logic {
                              * p1 Win 退出
                              */
                             status = 1;
+                            changeChip(status);
                             gameCycle(status);
 
                             return;
@@ -166,6 +180,7 @@ public class Logic {
                          * 平局 游戏结束
                          */
                         status = 0;
+                        changeChip(status);
                         gameCycle(status);
 
                         return;
@@ -175,6 +190,7 @@ public class Logic {
                              * p1 win 退出
                              */
                             status = 1;
+                            changeChip(status);
                             gameCycle(status);
 
                             return;
@@ -184,6 +200,7 @@ public class Logic {
                              * p2 win 退出
                              */
                             status = 2;
+                            changeChip(status);
                             gameCycle(status);
                             return;
                         }
@@ -220,6 +237,7 @@ public class Logic {
                          * p2 win
                          */
                         status = 2;
+                        changeChip(status);
                         gameCycle(status);
                         return;
                     } else {
@@ -228,6 +246,7 @@ public class Logic {
                              * 平局
                              */
                             status = 0;
+                            changeChip(status);
                             gameCycle(status);
 
                             return;
@@ -237,6 +256,7 @@ public class Logic {
                                  * p1 win
                                  */
                                 status = 1;
+                                changeChip(status);
                                 gameCycle(status);
                                 return;
                             } else {
@@ -244,6 +264,7 @@ public class Logic {
                                  * p2 win
                                  */
                                 status = 2;
+                                changeChip(status);
                                 gameCycle(status);
                                 return;
                             }
@@ -297,6 +318,7 @@ public class Logic {
                          * p1 win 退出
                          */
                         status = 1;
+                        changeChip(status);
                         gameCycle(status);
 
                         return;
