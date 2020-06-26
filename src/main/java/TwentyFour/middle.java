@@ -161,7 +161,7 @@ class CardPanel extends JPanel { //卡牌面板
 
 	}
 	public void turnFace(){
-		cardContainers.get(cardContainers.size()).turnFace();
+		cardContainers.get(cardContainers.size()-1).turnFace();
 	}
 }
 
