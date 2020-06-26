@@ -3,9 +3,11 @@ import javax.swing.*;
 import java.awt.*;
 
 class LeftPanel extends JPanel{
+	typeButton chip;
 
 	public LeftPanel() {
 		this.setLayout(new BorderLayout());
-		this.add(new typeButton("卡组"),BorderLayout.CENTER);
+		chip = new typeButton("400");
+		this.add(chip,BorderLayout.CENTER);
 	}
 }
