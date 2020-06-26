@@ -132,11 +132,11 @@ public class Logic {
     class Contact_Stand implements Runnable {
         public void run() {
             try {
-                String toSend = ClientDate.genRequestCard("stopRequestCard", "client1");
-                System.out.println("发送停止要拍指令" + toSend);
-                server.writer.write(toSend + "\n");
-                server.writer.flush();
                 if (first.equals("client1")) { // 先手停止要卡
+                    String toSend = ClientDate.genRequestCard("stopRequestCard", "client1");
+                    System.out.println("发送停止要拍指令" + toSend);
+                    server.writer.write(toSend + "\n");
+                    server.writer.flush();
                     String s1;
                     String dateType1;
                     bottom.hit.setEnabled(false);
