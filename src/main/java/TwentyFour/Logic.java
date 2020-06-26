@@ -247,7 +247,7 @@ public class Logic {
                         gameCycle(status);
                         return;
                     } else {
-                        if (p1.getSumPoint() == 21 || p2.getSumPoint() == 21) {
+                        if (p1.getSumPoint() == 21 && p2.getSumPoint() == 21) {
                             /**
                              * 平局
                              */
