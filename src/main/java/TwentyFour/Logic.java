@@ -131,9 +131,9 @@ public class Logic {
 
     class Contact_Stand implements Runnable {
         public void run() {
-            String toSend = ClientDate.genRequestCard("stopRequestCard", "client1");
-            System.out.println("发送停止要拍指令" + toSend);
             try {
+                String toSend = ClientDate.genRequestCard("stopRequestCard", "client1");
+                System.out.println("发送停止要拍指令" + toSend);
                 server.writer.write(toSend + "\n");
                 server.writer.flush();
                 if (first.equals("client1")) { // 先手停止要卡
@@ -210,6 +210,10 @@ public class Logic {
                         }
 
                     }
+                    String toSend2 = ClientDate.genRequestCard("stopRequestCard", "client1");
+                    System.out.println("发送停止要拍指令" + toSend2);
+                    server.writer.write(toSend2 + "\n");
+                    server.writer.flush();
 
                     if (p1.getSumPoint() > 21) {
                         /**
